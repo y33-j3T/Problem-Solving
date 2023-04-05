@@ -1,0 +1,14 @@
+from collections import deque
+
+d = deque()         # deque
+
+len(d)              # size()
+len(d) == 0         # is_empty()
+
+d[-1]               # peek_right()
+d[0]                # peek_left()
+
+d.append('a')       # enqueue_right('a')
+d.appendleft('a')   # enqueue_left('a')
+d.pop()             # dequeue_right()
+d.popleft()         # dequeue_left()
