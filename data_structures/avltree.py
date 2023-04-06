@@ -19,7 +19,8 @@ class AVL:
 
     def search(self, value):
         res = self._search(self.root, value)
-        return T() if not res else res.value
+        # return T() if not res else res.value
+        return -1 if not res else res.value
     
     def _find_min(self, node):
         if not node.left:
@@ -39,7 +40,8 @@ class AVL:
     
     def _successor(self, value):
         vPos = self._search(self.root, value)
-        return T() if not vPos else self.successor(vPos)
+        # return T() if not vPos else self.successor(vPos)
+        return -1 if not vPos else self.successor(vPos)
     
     def successor(self, node):
         if not node.right:
@@ -54,7 +56,8 @@ class AVL:
     
     def _predecessor(self, value):
         vPos = self._search(self.root, value)
-        return T() if not vPos else self.predecessor(vPos)
+        # return T() if not vPos else self.predecessor(vPos)
+        return -1 if not vPos else self.predecessor(vPos)
     
     def predecessor(self, node):
         if not node.left:
@@ -65,7 +68,8 @@ class AVL:
             node = parent_node
             parent_node = node.parent
 
-        return T() if not parent_node else parent_node.value
+        # return T() if not parent_node else parent_node.value
+        return -1 if not parent_node else parent_node.value
     
     def _inorder(self, node):
         if not node: return None
