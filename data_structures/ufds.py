@@ -3,7 +3,7 @@ class UnionFind:
         self.parent = [i for i in range(N)]
         self.rank = [0 for i in range(N)]
         self.set_size = [1 for i in range(N)]
-        self.num_sets = N
+        self.num_disj_sets = N
 
     def find_set(self, i):
         if self.parent[i] == i:
@@ -13,12 +13,12 @@ class UnionFind:
             return self.parent[i]
     
     def is_same_set(self, i, j):
-        return self.find_set[i] == self.find_set[j]
+        return self.find_set(i) == self.find_set(j)
     
     def union_set(self, i, j):
         if self.is_same_set(i, j): return
 
-        self.num_sets -= 1
+        self.num_disj_sets -= 1
         x = self.find_set(i)
         y = self.find_set(j)
 
@@ -33,7 +33,7 @@ class UnionFind:
             self.set_size[y] += self.set_size[x]
 
     def num_disjoint_sets(self):
-        return self.num_sets
+        return self.num_disj_sets
     
     def size_of_set(self, i):
         return self.set_size[self.find_set(i)]
